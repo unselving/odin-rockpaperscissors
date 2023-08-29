@@ -13,7 +13,7 @@ function getComputerChoice(){
     return randomMove;
 }
 
-const playerSelection = "rock";
+const playerSelection = "paper";
 const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
@@ -25,7 +25,23 @@ function playRound(playerSelection, computerSelection) {
         } else if(computerSelection===2){
             return "You Win! Rock beats Scissors";
         }
-    }    
+    } else if(playerSelection==="scissors"){
+        if (computerSelection===2){
+            return "It's a Tie!";
+        } else if (computerSelection===0){
+            return "You Lose! Rock beats Scissors";
+        } else if(computerSelection===1){
+            return "You Win! Scissors beats Paper";
+        }
+    } else if (playerSelection==="paper"){
+        if (computerSelection===1){
+            return "It's a Tie!";
+        } else if (computerSelection===2){
+            return "You Lose! Scissors beats Paper";
+        } else if(computerSelection===0){
+            return "You Win! Paper beats Rock";
+        }
+    }            
 }
  
 
