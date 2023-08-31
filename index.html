@@ -6,59 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
     <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<script type="text/javascript">
-function getComputerChoice(){
-    randomMove= (math.floor(math.random()*3));
-    return randomMove;
-}
 
-let playerSelection="";
-let computerSelection=0;
-
-function game(){
-    for (let i=0;i<5;i++){
-        console.log(playRound());
-    }
-}
-
-function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt ("Rock, paper, scissors?");
-    playerSelection=playerSelection.toLowerCase();
-    computerSelection = getComputerChoice();
-    if(playerSelection==="rock"){
-        if (computerSelection===0){
-            return "It's a Tie!";
-        } else if (computerSelection===1){
-            return "You Lose! Paper beats Rock";
-        } else if(computerSelection===2){
-            return "You Win! Rock beats Scissors";
-        }
-    } else if(playerSelection==="scissors"){
-        if (computerSelection===2){
-            return "It's a Tie!";
-        } else if (computerSelection===0){
-            return "You Lose! Rock beats Scissors";
-        } else if(computerSelection===1){
-            return "You Win! Scissors beats Paper";
-        }
-    } else if (playerSelection==="paper"){
-        if (computerSelection===1){
-            return "It's a Tie!";
-        } else if (computerSelection===2){
-            return "You Lose! Scissors beats Paper";
-        } else if(computerSelection===0){
-            return "You Win! Paper beats Rock";
-        }
-    }            
-}
- 
-
-game();
-
-
-</script>
 <body>
-    
+<div id="header">
+    <h1>Rock, Paper, Scissors</h1>
+</div>
+<div id="scoreboard">
+    <h2>Human 0 - 0 Computer</h2>
+</div>
+<div id="buttons">
+    <button type="button" id="rock">Rock</button>
+    <button type="button" id="paper">Paper</button>
+    <button type="button" id="scissors">Scissors</button>
+</div>
+<div id="result">
+    <p>It's a Tie!</p>
+</div>
+    <script src="rps-script.js">
+    </script>
 </body>
 </html>
