@@ -74,8 +74,14 @@ function playRound() {
 }
 
 function scoreCheck() {
-    if ((playerScore==5)||(computerScore==5)){
-        alert("Game Over!");
+    if (playerScore==5){
+        alert("Game Over! Human Wins");
+        playerScore=0;
+        computerScore=0;
+        result.textContent="";
+        score.textContent=("Human 0 - 0 Computer");
+    } else if (computerScore==5){
+        alert("Game Over! Computer Wins");
         playerScore=0;
         computerScore=0;
         result.textContent="";
