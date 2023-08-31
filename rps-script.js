@@ -13,52 +13,73 @@ buttons.forEach((button) =>{
     button.addEventListener('click', ()=>{
         playerSelection=button.id;
         computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
+        playRound();
+        scoreCheck();
     });
 });
 
 const result = document.getElementById('result');
+const score = document.getElementById('scoreboard');
 
-function playRound(playerSelection, computerSelection) {
+function playRound() {
     if(playerSelection==="rock"){
         if (computerSelection===0){
             result.textContent="It's a Tie!";
-            return computerScore;
+            score.textContent=("Human " + playerScore + " - " + computerScore + " Computer");
+            return [playerScore, computerScore];
         } else if (computerSelection===1){
             computerScore++;
             result.textContent="You Lose! Paper beats Rock";
-            return computerScore;
+            score.textContent=("Human " + playerScore + " - " + computerScore + " Computer");
+            return [playerScore, computerScore];
         } else if(computerSelection===2){
             playerScore++;
             result.textContent="You Win! Rock beats Scissors";
-            return playerScore;
+            score.textContent=("Human " + playerScore + " - " + computerScore + " Computer");
+            return [playerScore, computerScore];
         }
     } else if(playerSelection==="scissors"){
         if (computerSelection===2){
             result.textContent="It's a Tie!";
-            return computerScore;
+            score.textContent=("Human " + playerScore + " - " + computerScore + " Computer");
+            return [playerScore, computerScore];
         } else if (computerSelection===0){
             computerScore++;
             result.textContent="You Lose! Rock beats Scissors";
-            return computerScore;
+            score.textContent=("Human " + playerScore + " - " + computerScore + " Computer");
+            return [playerScore, computerScore];
         } else if(computerSelection===1){
             playerScore++;
             result.textContent="You Win! Scissors beats Paper";
-            return playerScore;
+            score.textContent=("Human " + playerScore + " - " + computerScore + " Computer");
+            return [playerScore, computerScore];
         }
     } else if (playerSelection==="paper"){
         if (computerSelection===1){
             result.textContent="It's a Tie!";
-            return computerScore;
+            score.textContent=("Human " + playerScore + " - " + computerScore + " Computer");
+            return [playerScore, computerScore];
         } else if (computerSelection===2){
             computerScore++;
             result.textContent="You Lose! Scissors beats Paper";
-            return computerScore;
+            score.textContent=("Human " + playerScore + " - " + computerScore + " Computer");
+            return [playerScore, computerScore];
         } else if(computerSelection===0){
             playerScore++;
             result.textContent="You Win! Paper beats Rock";
-            return playerScore;
+            score.textContent=("Human " + playerScore + " - " + computerScore + " Computer");
+            return [playerScore, computerScore];
         }
     }            
 }
- 
+
+function scoreCheck() {
+    if ((playerScore==5)||(computerScore==5)){
+        alert("Game Over!");
+        playerScore=0;
+        computerScore=0;
+        result.textContent="";
+        score.textContent=("Human 0 - 0 Computer");
+    }
+
+}
